@@ -616,20 +616,6 @@ export default class ConnectionManager {
             const addressesStrings = [];
 
             // the timeouts are a small hack to try and ensure the remote address doesn't resolve first
-
-            // manualAddressOnly is used for the local web app that always connects to a fixed address
-            if (
-                !serverInfo.manualAddressOnly &&
-                serverInfo.LocalAddress &&
-                addressesStrings.indexOf(serverInfo.LocalAddress) === -1
-            ) {
-                addresses.push({
-                    url: serverInfo.LocalAddress,
-                    mode: ConnectionMode.Local,
-                    timeout: 0
-                });
-                addressesStrings.push(addresses[addresses.length - 1].url);
-            }
             if (serverInfo.ManualAddress && addressesStrings.indexOf(serverInfo.ManualAddress) === -1) {
                 addresses.push({
                     url: serverInfo.ManualAddress,
