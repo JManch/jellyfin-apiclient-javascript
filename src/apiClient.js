@@ -3950,10 +3950,6 @@ function tryReconnectInternal(instance) {
     const addressesStrings = [];
 
     const serverInfo = instance.serverInfo();
-    if (serverInfo.LocalAddress && addressesStrings.indexOf(serverInfo.LocalAddress) === -1) {
-        addresses.push({ url: serverInfo.LocalAddress, timeout: 0 });
-        addressesStrings.push(addresses[addresses.length - 1].url);
-    }
     if (serverInfo.ManualAddress && addressesStrings.indexOf(serverInfo.ManualAddress) === -1) {
         addresses.push({ url: serverInfo.ManualAddress, timeout: 100 });
         addressesStrings.push(addresses[addresses.length - 1].url);
